@@ -24,7 +24,21 @@ router.post("/", function(req, res){
 });
 
 router.put("/:id", function(req, res){
-    var eaten = "id =" + req.
-})
+    var eaten = "id =" + req.params.id;
+
+    burger.update({
+        devoured:req.body.devoured
+    }, condition, function(){
+        res.direct("/");
+    });
+});
+
+router.delete("/:id", function(req,res){
+    var condtion = "id = " + req.params.id;
+
+    burger.delete(condition, function(){
+        res.redirect("/");
+    });
+});
 
 module.exports = router;

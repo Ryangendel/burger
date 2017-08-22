@@ -23,7 +23,7 @@ function objToSQL (ob){
 
 var orm = {
     all: function (tableInput, callback){
-        var queryString = "SELECT * FROM" + tableInput + ";";
+        var queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function(err, result){
             if (err){
                 throw err;
@@ -33,13 +33,13 @@ var orm = {
     },
 
     create: function (table, cols, vals, callback){
-        var queryString = "INSERT INTO" + table;
-        queryString += "(";
+        var queryString = "INSERT INTO " + table;
+        queryString += " (";
         queryString += cols.toString();
-        queryString += ")";
+        queryString += ") ";
         queryString += "VALUES (";
         queryString += printQuestionMarks(vals.length);
-        queryString += ")";
+        queryString += ") ";
 
     connection.query(queryString, vals, function(err, result){
         if (err){
