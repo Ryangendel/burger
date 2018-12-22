@@ -1,13 +1,51 @@
-<h1> Eat-Da-Burger</h1>
+<div class="row">
+    {{! Burgers to eat}}
+    <div class="col s6 center-align">
+        <ul>
+            {{#each brgr}}
+                {{#unless this.devoured}}
+                    <div class="card blue">
+                        <p>
+                            {{this.id}}. {{this.burger_name}}
 
-<h2>What type of burger do you want?</h2>
-{{!-- creating a form --}}
-<form class = "create-update-form" action="/" method ="POST">
+                        <form action="update/{{this.id}}?_method=PUT" method="POST">
+                            <input type="hidden" name="devoured" value="1">
+                            <button type="submit" class="waves-effect waves-light btn blue lighten-3 z-depth-4">DEVOUR IT!</button>
+                        </form>
 
-    <div class = "form-group">
-        <input type="text" id= "ca" name = "name">
+                        </p>
+                    </div>
+                {{/unless}}
+            {{/each}}
+        </ul>
     </div>
-    <button type = "submit"> Add Burger</button>
-</form>
 
-<p>Enter a burger you want to eat, Click the "Submit" button</p>
+    {{! Devoured Burgers}}
+    <div class="col s6 center-align">
+        <ul>
+            {{#each brgr}}
+                {{#if this.devoured}}
+                    <div class="card blue lighten-1">
+                        <p class="black-text">
+                            {{this.id}}. {{this.burger_name}}
+
+                        <form action="delete/{{this.id}}?_method=DELETE" method="POST">
+                            <button type="submit" class="waves-effect waves-light btn red z-depth-4">TRASH IT!</button>
+                        </form>
+                        </p>
+                    </div>
+                {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s3"></div>
+    <div class="col s6">
+        <div class="card-panel center-align grey ">
+            {{! Dropdown that allows user to only pick burgers on menu }}
+            {{> menu/dropdown}}
+        </div>
+    </div>
+</div>

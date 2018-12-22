@@ -1,31 +1,41 @@
-var express = require("express");
-var methodOverride = require('method-override')
+// var Sequelize = require('sequelize'), connection;
+// if (process.env.JAWSDB_URL) {
+//   connection = new Sequelize(process.env.JAWSDB_URL);
+// } else {
+//   connection = new Sequelize('burgers_db', 'root', 'password', {
+//     host: 'localhost',
+//     dialect: 'mysql',
+//     port: '3000'
+//   })
+// }
+
+var express = require('express');
 var bodyParser = require('body-parser');
-var exphbs = require ('express-handlebars');
+var methodOverride = require('method-override');
 
-var app = express() 
+var app = express();
+var PORT = process.env.PORT || 8080;
+// Serve static content for the app from the "public" directory in the application directory.
+app.use(express.static(process.cwd() + '/public'));
 
-var PORT = process.env.PORT || 3030;
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'));
+var exphbs = require('express-handlebars');
+app.engine('handlebars', exphbs({
+    defaultLayout: 'main'
+}));
+app.set('view engine', 'handlebars');
 
-app.engine("handlebars", exphbs({defaultLayout: "main"}));
-app.set("view engine", "handlebars");
+var routes = require('./controllers/burgers_controller.js');
+app.use('/', routes);
 
-var routes = require("./controllers/burgers_controller.js");
-
-app.use("/", routes);
-
-app.listen(PORT, function(){
-    console.log("App listening on PORT:" + PORT);
-});
-
-// app.use(function (req, res) {
-//     res.setHeader('Content-Type', 'text/plain')
-//     res.write('you posted:\n')
-//     res.end(JSON.stringify(req.body, null, 2))
-//    });
-   
-//    require("./app/routing/apiroutes")(app);
-//    require("./app/routing/htmlroutes")(app);
+var port = process.env.PORT || 3000;
+app.listen(port);
 
 
-
+    app.listen(PORT, function() {
+        console.log("App listening on PORT " + PORT);
+    });

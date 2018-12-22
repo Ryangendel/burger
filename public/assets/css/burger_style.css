@@ -1,0 +1,11 @@
+body{
+    background: url('../img/burgerBG.jpg');
+    font-family: 'Anton', sans-serif;
+    font-family: 'Indie Flower', cursive;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 20px;
+}
+
+.card{
+    padding: 2px;
+}

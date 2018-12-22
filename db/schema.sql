@@ -1,10 +1,21 @@
-USE burger_db;
+CREATE DATABASE burgers_db;
 
--- Create the table actors.
-CREATE TABLE burgers (
-  id int AUTO_INCREMENT,
-  burger_name varchar(60) NOT NULL,
-  devoured BOOLEAN DEFAULT false,
-  mytimestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+
+USE burgers_db;
+
+
+CREATE TABLE burgers(
+  id INT AUTO_INCREMENT NOT NULL,
+  burger_name VARCHAR(50) NOT NULL,
+  devoured BOOLEAN NOT NULL DEFAULT 0,
+
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE menu(
+  id INT AUTO_INCREMENT NOT NULL,
+  item VARCHAR(50) NOT NULL,
+  entree BOOLEAN NOT NULL DEFAULT 1,
   PRIMARY KEY(id)
 );
