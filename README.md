@@ -14,37 +14,5 @@ After you're done, you can remove the items by sending them to the TRASH IT!.
 Happy eating!
  ```
 
-### As seen here.
-![Burger Demo](public/assets/img/start.gif)
 
-
-
-### Built With
-
-```
-* MySQL
-* Node.JS
-* JavaScript
-* Handlebars.js
-* Body-parser
-* Sequelize
-
-```
-
-### Contributing
-
-```
-There are different ways to contribute
-* Back End
-* Designers
-* Genius Idea's
-* Unit Testers
-* etc.
-```
-
-### Contributers
-
-```
-* Dennis Platts-Dethman
-```
 
