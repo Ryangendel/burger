@@ -1,6 +1,6 @@
 
 # Burger
-University of Denver Coding Bootcamp Week 14 - Eat the Burger!
+Eat the Burger!
 
  ```
 Welcome to Eat the Burger! This is an a simple app that allows you to order Burgers of you choice and side items. 
